@@ -10,202 +10,228 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0B1F3A;
-  --navy-2:#122C52;
-  --navy-3:#1B3A6B;
-  --gold:#C9A227;
-  --gold-2:#E2C25B;
-  --gold-soft:#F6EDD6;
-  --cream:#F8F6F1;
+  --navy:#12172b;
+  --navy-2:#1a1f2e;
+  --navy-3:#232940;
+  --gold:#d4af37;
+  --gold-2:#e8c84a;
+  --gold-soft:rgba(212,175,55,.12);
+  --cream:#f5f5f5;
   --white:#FFFFFF;
   --text:#1E293B;
-  --text-light:#5B6B7F;
-  --line:#E4E0D5;
+  --text-light:#b0b0b0;
+  --text-body:#e0e0e0;
+  --line:rgba(255,255,255,.1);
   --green:#25D366;
-  --shadow:0 12px 40px rgba(11,31,58,.12);
-  --radius:16px;
+  --shadow:0 8px 32px rgba(0,0,0,.25);
+  --radius:12px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.65;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.7;overflow-x:hidden}
 h1,h2,h3,.serif{font-family:'Playfair Display',serif;line-height:1.2}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
-.container{width:min(1120px,92%);margin-inline:auto}
-.section{padding:88px 0}
-.section-alt{background:var(--cream)}
-.eyebrow{display:inline-block;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;font-weight:700;color:var(--gold);margin-bottom:14px}
-.section-title{font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--navy);margin-bottom:16px}
-.section-sub{color:var(--text-light);max-width:640px;margin-bottom:44px;font-size:1.02rem}
+.container{width:min(1180px,92%);margin-inline:auto}
+.section{padding:100px 0}
+.section-dark{background:var(--navy);color:#fff}
+.section-light{background:var(--cream)}
+.eyebrow{display:inline-block;letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;font-weight:700;color:var(--gold);margin-bottom:16px}
+.section-title{font-size:clamp(1.9rem,3.8vw,2.8rem);color:var(--navy);margin-bottom:14px}
+.section-dark .section-title{color:#fff}
+.section-sub{color:var(--text-light);max-width:620px;margin-bottom:48px;font-size:1rem}
+.section-dark .section-sub{color:rgba(255,255,255,.6)}
+.gold-line{width:60px;height:3px;background:var(--gold);margin-bottom:28px;border-radius:2px}
 
 /* ===== BOTONES ===== */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;border-radius:999px;font-weight:600;font-size:.98rem;transition:transform .2s,box-shadow .2s,background .2s;border:none;cursor:pointer}
-.btn:hover{transform:translateY(-2px)}
-.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#241B02;box-shadow:0 8px 24px rgba(201,162,39,.35)}
-.btn-navy{background:var(--navy);color:#fff;box-shadow:0 8px 24px rgba(11,31,58,.3)}
-.btn-wa{background:var(--green);color:#fff;box-shadow:0 8px 24px rgba(37,211,102,.3)}
-.btn-outline{border:2px solid rgba(255,255,255,.55);color:#fff;background:transparent}
-.btn-outline:hover{background:rgba(255,255,255,.12)}
-.btn-dark-outline{border:2px solid var(--navy);color:var(--navy);background:transparent}
-.btn-dark-outline:hover{background:var(--navy);color:#fff}
-.btn-sm{padding:10px 20px;font-size:.9rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 32px;border-radius:6px;font-weight:600;font-size:.95rem;transition:all .25s;border:none;cursor:pointer;letter-spacing:.02em}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.btn-gold{background:var(--gold);color:#1a1a1a}
+.btn-gold:hover{background:var(--gold-2)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-2)}
+.btn-wa{background:var(--green);color:#fff}
+.btn-wa:hover{background:#20bd5a}
+.btn-outline-light{border:2px solid rgba(255,255,255,.4);color:#fff;background:transparent}
+.btn-outline-light:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.7)}
+.btn-outline-dark{border:2px solid var(--navy);color:var(--navy);background:transparent}
+.btn-outline-dark:hover{background:var(--navy);color:#fff}
+.btn-sm{padding:10px 22px;font-size:.85rem;border-radius:4px}
 
 /* ===== NAVBAR ===== */
-header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,box-shadow .3s;padding:0}
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .3s;background:rgba(18,23,43,.95);backdrop-filter:blur(10px)}
+header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.3)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:90px}
-header.scrolled{background:rgba(11,31,58,.97);box-shadow:0 6px 24px rgba(0,0,0,.25);backdrop-filter:blur(8px)}
-.brand{display:flex;align-items:center;gap:12px;color:#fff}
+.brand{display:flex;align-items:center;gap:14px;color:#fff}
 .brand img{height:70px;width:auto;object-fit:contain;border-radius:8px}
-.brand-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.18rem;line-height:1.1}
-.brand-name small{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2)}
-nav ul{display:flex;gap:30px;list-style:none;align-items:center}
-nav ul li a{color:rgba(255,255,255,.85);font-size:.94rem;font-weight:500;transition:color .2s}
-nav ul li a:hover{color:var(--gold-2)}
-.nav-cta{padding:10px 22px!important;border-radius:999px;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#241B02!important;font-weight:700}
+.brand-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;line-height:1.1}
+.brand-name small{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+nav ul{display:flex;gap:32px;list-style:none;align-items:center}
+nav ul li a{color:rgba(255,255,255,.8);font-size:.9rem;font-weight:500;transition:color .2s;letter-spacing:.02em}
+nav ul li a:hover{color:var(--gold)}
+.nav-cta{padding:10px 24px!important;border-radius:6px;background:var(--gold)!important;color:#1a1a1a!important;font-weight:700!important;font-size:.85rem!important}
 .burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
-.burger span{display:block;width:26px;height:2.6px;background:#fff;margin:5.5px 0;border-radius:3px;transition:.3s}
+.burger span{display:block;width:26px;height:2.5px;background:#fff;margin:5.5px 0;border-radius:3px;transition:.3s}
 
 /* ===== HERO ===== */
-.hero{position:relative;background:linear-gradient(160deg,#0A1D36 0%,#0E2A4F 55%,#15386B 100%);color:#fff;padding:170px 0 110px;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 400px at 85% 10%,rgba(201,162,39,.16),transparent 60%),radial-gradient(700px 500px at -10% 90%,rgba(201,162,39,.10),transparent 60%)}
-.hero::after{content:"⚖️";position:absolute;right:-40px;bottom:-60px;font-size:320px;opacity:.06;transform:rotate(-12deg)}
-.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(201,162,39,.5);color:var(--gold-2);background:rgba(201,162,39,.10);padding:8px 18px;border-radius:999px;font-size:.82rem;font-weight:600;letter-spacing:.06em;margin-bottom:24px}
-.hero h1{font-size:clamp(2.3rem,5vw,3.5rem);font-weight:700;margin-bottom:20px}
-.hero h1 em{font-style:italic;color:var(--gold-2)}
-.hero p.lead{font-size:1.12rem;color:rgba(255,255,255,.82);max-width:560px;margin-bottom:34px}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:44px}
-.hero-trust{display:flex;flex-wrap:wrap;gap:26px;color:rgba(255,255,255,.75);font-size:.9rem}
-.hero-trust div{display:flex;align-items:center;gap:9px}
-.hero-trust .ico{font-size:1.15rem}
+.hero{position:relative;background:linear-gradient(160deg,#0c1120 0%,#12172b 50%,#1a2240 100%);color:#fff;padding:180px 0 120px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 80% 20%,rgba(212,175,55,.1),transparent 60%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.3}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(212,175,55,.4);color:var(--gold);background:rgba(212,175,55,.08);padding:8px 20px;border-radius:4px;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:28px}
+.hero h1{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:700;margin-bottom:22px;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p.lead{font-size:1.08rem;color:rgba(255,255,255,.7);max-width:540px;margin-bottom:36px;line-height:1.8}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:48px}
+.hero-trust{display:flex;flex-wrap:wrap;gap:32px;color:rgba(255,255,255,.6);font-size:.88rem}
+.hero-trust div{display:flex;align-items:center;gap:10px}
+.hero-trust .ico{color:var(--gold);font-size:1.1rem}
 /* tarjeta lateral */
-.hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:30px;backdrop-filter:blur(6px);text-align:center;position:relative}
-.hero-card .avatar{width:160px;height:160px;border-radius:50%;object-fit:cover;margin:0 auto 18px;border:4px solid var(--gold);background:var(--navy-2)}
-.avatar-ph{width:160px;height:160px;border-radius:50%;margin:0 auto 18px;border:4px solid var(--gold);background:linear-gradient(135deg,var(--navy-2),var(--navy-3));display:flex;align-items:center;justify-content:center;font-size:3.2rem}
+.hero-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:32px;backdrop-filter:blur(6px);text-align:center}
+.hero-card .avatar{width:170px;height:170px;border-radius:50%;object-fit:cover;margin:0 auto 20px;border:3px solid var(--gold);background:var(--navy-2)}
+.avatar-ph{width:170px;height:170px;border-radius:50%;margin:0 auto 20px;border:3px solid var(--gold);background:var(--navy-2);display:flex;align-items:center;justify-content:center;font-size:3.5rem}
 .hero-card h3{font-size:1.5rem;margin-bottom:4px}
-.hero-card .role{color:var(--gold-2);font-size:.88rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
-.hero-card .card-line{border-top:1px solid rgba(255,255,255,.15);margin:16px 0;padding-top:14px;font-size:.9rem;color:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;gap:8px}
-.tiktok-mini{display:flex;align-items:center;gap:14px;text-align:left;background:#0A1626;border-radius:14px;padding:14px 16px;margin-top:14px;cursor:pointer;transition:transform .2s}
-.tiktok-mini:hover{transform:translateY(-2px)}
+.hero-card .role{color:var(--gold);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.hero-card .card-line{border-top:1px solid rgba(255,255,255,.12);margin:16px 0;padding-top:16px;font-size:.88rem;color:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;gap:8px}
+.tiktok-mini{display:flex;align-items:center;gap:14px;text-align:left;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 16px;margin-top:16px;cursor:pointer;transition:all .2s}
+.tiktok-mini:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
 .tiktok-mini .tt-ico{width:42px;height:42px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
-.tiktok-mini b{color:#fff;font-size:.95rem;display:block;line-height:1.3}
-.tiktok-mini small{color:rgba(255,255,255,.6);font-size:.78rem}
+.tiktok-mini b{color:#fff;font-size:.92rem;display:block;line-height:1.3}
+.tiktok-mini small{color:rgba(255,255,255,.5);font-size:.76rem}
 
-/* ===== SECCIONES GENERALES ===== */
-.grid-areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.area-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
-.area-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-2));opacity:0;transition:opacity .25s}
-.area-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
-.area-card:hover::before{opacity:1}
-.area-card .ico{width:56px;height:56px;border-radius:14px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px}
-.area-card h3{font-size:1.22rem;color:var(--navy);margin-bottom:10px}
-.area-card p{color:var(--text-light);font-size:.94rem}
+/* ===== ÁREAS DE PRÁCTICA (OSCURO como la referencia) ===== */
+.grid-areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.area-card{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:32px 28px;transition:all .3s;position:relative;overflow:hidden}
+.area-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.3);border-color:rgba(212,175,55,.3)}
+.area-card .ico{width:56px;height:56px;border-radius:12px;background:rgba(212,175,55,.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.area-card .ico svg{stroke:var(--gold)}
+.area-card h3{font-size:1.15rem;color:#fff;margin-bottom:12px;font-family:'Inter',sans-serif;font-weight:700}
+.area-card p{color:var(--text-light);font-size:.9rem;line-height:1.7}
+.area-card .view-more{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--gold);font-size:.82rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;transition:gap .2s}
+.area-card:hover .view-more{gap:10px}
 
 /* sobre mí */
-.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
 .about-photo{position:relative}
 .about-photo .frame{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);position:relative}
 .about-photo .frame img{width:100%;display:block}
-.about-photo .sello{position:absolute;bottom:-24px;right:-18px;background:var(--gold);color:#241B02;border-radius:50%;width:110px;height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:700;font-size:.72rem;line-height:1.25;box-shadow:0 10px 30px rgba(201,162,39,.45);transform:rotate(8deg)}
+.about-photo .sello{position:absolute;bottom:-20px;right:-14px;background:var(--gold);color:#1a1a1a;border-radius:50%;width:110px;height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:700;font-size:.7rem;line-height:1.25;box-shadow:0 10px 30px rgba(212,175,55,.4);transform:rotate(8deg)}
 .about-photo .sello .num{font-size:1.3rem;font-family:'Playfair Display',serif}
-.creds{list-style:none;margin-top:22px;display:grid;gap:12px}
-.creds li{display:flex;gap:12px;align-items:flex-start;font-size:.97rem;color:var(--text)}
-.creds .ck{width:24px;height:24px;border-radius:50%;background:var(--gold-soft);color:#8a6d12;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:2px}
+.creds{list-style:none;margin-top:24px;display:grid;gap:14px}
+.creds li{display:flex;gap:14px;align-items:flex-start;font-size:.95rem;color:var(--text)}
+.creds .ck{width:24px;height:24px;border-radius:50%;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:2px}
+
+/* stats (como la referencia) */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.stat-box{background:var(--navy);border-radius:10px;padding:22px 20px;text-align:center}
+.stat-box.gold-bg{background:var(--gold)}
+.stat-box .stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:#fff;display:block}
+.stat-box.gold-bg .stat-num{color:#1a1a1a}
+.stat-box .stat-label{font-size:.78rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.stat-box.gold-bg .stat-label{color:rgba(26,26,26,.7)}
 
 /* proceso */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
-.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 28px;position:relative}
-.step .n{position:absolute;top:-22px;left:26px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#241B02;font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(201,162,39,.4)}
-.step h3{font-size:1.2rem;color:var(--navy);margin:18px 0 10px}
-.step p{color:var(--text-light);font-size:.93rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.step{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:36px 28px;position:relative;transition:all .3s}
+.step:hover{border-color:rgba(212,175,55,.3);transform:translateY(-4px)}
+.step .n{position:absolute;top:-20px;left:28px;width:44px;height:44px;border-radius:50%;background:var(--gold);color:#1a1a1a;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(212,175,55,.35)}
+.step h3{font-size:1.15rem;color:#fff;margin:18px 0 10px;font-family:'Inter',sans-serif;font-weight:700}
+.step p{color:var(--text-light);font-size:.9rem}
 
 /* testimonios */
-.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.testi{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px}
-.testi .stars{color:var(--gold);letter-spacing:3px;margin-bottom:14px}
-.testi p{font-style:italic;color:var(--text);font-size:.98rem;margin-bottom:18px}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.testi{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:32px;transition:all .3s}
+.testi:hover{border-color:rgba(212,175,55,.2)}
+.testi .stars{color:var(--gold);letter-spacing:3px;margin-bottom:16px}
+.testi p{font-style:italic;color:var(--text-body);font-size:.95rem;margin-bottom:20px;line-height:1.7}
 .testi .who{display:flex;align-items:center;gap:12px}
-.testi .who .ini{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
-.testi .who b{display:block;font-size:.95rem}
+.testi .who .ini{width:44px;height:44px;border-radius:50%;background:var(--gold);color:#1a1a1a;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem}
+.testi .who b{display:block;font-size:.92rem;color:#fff}
 .testi .who small{color:var(--text-light)}
-.note-placeholder{font-size:.8rem;color:#A1821B;background:var(--gold-soft);border:1px dashed #C9A227;padding:8px 14px;border-radius:8px;display:inline-block;margin-bottom:24px}
+.note-placeholder{font-size:.78rem;color:var(--gold);background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);padding:8px 16px;border-radius:6px;display:inline-block;margin-bottom:28px}
 
 /* FAQ */
 .faq{max-width:780px;margin-inline:auto}
-.faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
-.faq-q{width:100%;background:none;border:none;text-align:left;padding:22px 26px;font-size:1.02rem;font-weight:600;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Inter',sans-serif}
-.faq-q .pm{color:var(--gold);font-size:1.5rem;transition:transform .3s;font-weight:400;line-height:1}
+.faq-item{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:10px;margin-bottom:14px;overflow:hidden;transition:border-color .2s}
+.faq-item:hover{border-color:rgba(212,175,55,.2)}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:22px 26px;font-size:1rem;font-weight:600;color:#fff;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Inter',sans-serif}
+.faq-q .pm{color:var(--gold);font-size:1.4rem;transition:transform .3s;font-weight:400;line-height:1}
 .faq-item.open .pm{transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.faq-a div{padding:0 26px 22px;color:var(--text-light);font-size:.95rem}
+.faq-a div{padding:0 26px 22px;color:var(--text-light);font-size:.92rem;line-height:1.7}
 
 /* CTA TIKTOK */
-.tiktok-band{position:relative;background:#0A1626;color:#fff;overflow:hidden;padding:76px 0}
-.tiktok-band::before{content:"♪";position:absolute;font-size:340px;right:-30px;top:-70px;opacity:.07;color:#25F4EE;font-family:serif}
-.tiktok-band::after{content:"♪";position:absolute;font-size:220px;left:-20px;bottom:-60px;opacity:.06;color:#FE2C55;font-family:serif}
-.tt-grid{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
-.tt-grid h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:14px}
+.tiktok-band{position:relative;background:#0A0F1E;color:#fff;overflow:hidden;padding:90px 0}
+.tiktok-band::before{content:"♪";position:absolute;font-size:340px;right:-30px;top:-70px;opacity:.05;color:#25F4EE;font-family:serif}
+.tiktok-band::after{content:"♪";position:absolute;font-size:220px;left:-20px;bottom:-60px;opacity:.04;color:#FE2C55;font-family:serif}
+.tt-grid{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.tt-grid h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:16px}
 .tt-grid h2 span{background:linear-gradient(90deg,#25F4EE,#FE2C55);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.tt-grid p{color:rgba(255,255,255,.75);max-width:520px;margin-bottom:28px}
-.tt-follow{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#000;padding:16px 34px;border-radius:999px;font-weight:700;font-size:1.05rem;transition:transform .2s;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.tt-follow:hover{transform:translateY(-3px) scale(1.02)}
+.tt-grid p{color:rgba(255,255,255,.6);max-width:520px;margin-bottom:30px;line-height:1.8}
+.tt-follow{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#000;padding:16px 36px;border-radius:6px;font-weight:700;font-size:1.02rem;transition:all .2s;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.tt-follow:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.4)}
 .tt-follow .tt-logo{width:26px;height:26px}
 .tt-socials{display:flex;flex-direction:column;gap:14px}
-.tt-socials a{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 20px;color:#fff;font-weight:600;transition:background .2s,transform .2s}
-.tt-socials a:hover{background:rgba(255,255,255,.14);transform:translateX(6px)}
-.tt-socials .s-ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
-.tt-socials small{display:block;font-weight:400;color:rgba(255,255,255,.55);font-size:.8rem}
+.tt-socials a{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 20px;color:#fff;font-weight:600;transition:all .2s}
+.tt-socials a:hover{background:rgba(255,255,255,.1);transform:translateX(6px);border-color:rgba(212,175,55,.3)}
+.tt-socials .s-ico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.tt-socials small{display:block;font-weight:400;color:rgba(255,255,255,.45);font-size:.78rem}
 
 /* CTA final */
-.final-cta{background:linear-gradient(135deg,var(--navy),var(--navy-3));color:#fff;text-align:center;padding:84px 0;position:relative;overflow:hidden}
-.final-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 300px at 50% 120%,rgba(201,162,39,.25),transparent 70%)}
-.final-cta h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:16px;position:relative}
-.final-cta p{color:rgba(255,255,255,.8);max-width:560px;margin:0 auto 34px;position:relative}
+.final-cta{background:linear-gradient(135deg,var(--navy),#1a2240);color:#fff;text-align:center;padding:100px 0;position:relative;overflow:hidden}
+.final-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 120%,rgba(212,175,55,.2),transparent 70%)}
+.final-cta::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.3}
+.final-cta h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:16px;position:relative}
+.final-cta p{color:rgba(255,255,255,.65);max-width:560px;margin:0 auto 36px;position:relative;line-height:1.8}
 .final-cta .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
 
 /* contacto */
 .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
-.c-card{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px;transition:transform .2s,box-shadow .2s}
-.c-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.c-card .ico{width:50px;height:50px;border-radius:12px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
-.c-card b{display:block;color:var(--navy);margin-bottom:3px;font-size:.95rem}
-.c-card a,.c-card span{color:var(--text-light);font-size:.95rem;word-break:break-word}
+.c-card{display:flex;gap:18px;align-items:flex-start;background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:22px;margin-bottom:14px;transition:all .2s}
+.c-card:hover{transform:translateY(-3px);border-color:rgba(212,175,55,.25)}
+.c-card .ico{width:48px;height:48px;border-radius:10px;background:rgba(212,175,55,.1);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.c-card b{display:block;color:#fff;margin-bottom:3px;font-size:.92rem}
+.c-card a,.c-card span{color:var(--text-light);font-size:.92rem;word-break:break-word}
 .c-card a:hover{color:var(--gold)}
 .socials-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
-.socials-row a{width:48px;height:48px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;transition:transform .2s,background .2s}
-.socials-row a:hover{transform:translateY(-3px);background:var(--gold)}
-.form-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow)}
-.form-box h3{color:var(--navy);font-size:1.5rem;margin-bottom:6px}
-.form-box .fb-sub{color:var(--text-light);font-size:.92rem;margin-bottom:24px}
+.socials-row a{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.08);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:all .2s;border:1px solid rgba(255,255,255,.1)}
+.socials-row a:hover{transform:translateY(-3px);background:var(--gold);color:#1a1a1a}
+.form-box{background:var(--navy-2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow)}
+.form-box h3{color:#fff;font-size:1.4rem;margin-bottom:6px}
+.form-box .fb-sub{color:var(--text-light);font-size:.9rem;margin-bottom:24px}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-grid .full{grid-column:1/-1}
-label{font-size:.85rem;font-weight:600;color:var(--navy);display:block;margin-bottom:6px}
-input,textarea,select{width:100%;padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:.95rem;color:var(--text);background:var(--cream);transition:border-color .2s;outline:none}
-input:focus,textarea:focus,select:focus{border-color:var(--gold);background:#fff}
+label{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.8);display:block;margin-bottom:6px}
+input,textarea,select{width:100%;padding:13px 16px;border:1.5px solid rgba(255,255,255,.12);border-radius:8px;font-family:'Inter',sans-serif;font-size:.92rem;color:#fff;background:rgba(255,255,255,.05);transition:border-color .2s;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--gold);background:rgba(255,255,255,.08)}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.3)}
 textarea{min-height:120px;resize:vertical}
-.form-msg{display:none;margin-top:16px;padding:14px 18px;border-radius:10px;font-size:.92rem;font-weight:600}
-.form-msg.ok{display:block;background:#E6F9EF;color:#167A43;border:1px solid #9FE3BD}
-.form-msg.err{display:block;background:#FDECEC;color:#B3261E;border:1px solid #F2B8B5}
+select option{background:var(--navy-2);color:#fff}
+.form-msg{display:none;margin-top:16px;padding:14px 18px;border-radius:8px;font-size:.9rem;font-weight:600}
+.form-msg.ok{display:block;background:rgba(37,211,102,.15);color:#25D366;border:1px solid rgba(37,211,102,.3)}
+.form-msg.err{display:block;background:rgba(255,80,80,.15);color:#ff6b6b;border:1px solid rgba(255,80,80,.3)}
 
 /* footer */
-footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-size:.9rem}
-.foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:24px}
-.foot-grid .brand{font-size:1.15rem;margin-bottom:8px}
-.foot-grid p{max-width:340px;font-size:.88rem}
+footer{background:#0a0e1a;color:rgba(255,255,255,.5);padding:48px 0 28px;font-size:.88rem}
+.foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:24px}
+.foot-grid .brand{font-size:1.1rem;margin-bottom:8px}
+.foot-grid p{max-width:340px;font-size:.85rem;line-height:1.7}
 .foot-links{display:flex;gap:26px;flex-wrap:wrap;list-style:none;align-items:flex-start}
-.foot-links a:hover{color:var(--gold-2)}
-.copyright{text-align:center;font-size:.8rem;color:rgba(255,255,255,.4)}
+.foot-links a{color:rgba(255,255,255,.5);transition:color .2s}
+.foot-links a:hover{color:var(--gold)}
+.copyright{text-align:center;font-size:.78rem;color:rgba(255,255,255,.3)}
 
 /* WhatsApp flotante */
-.wa-float{position:fixed;bottom:24px;right:24px;z-index:90;width:62px;height:62px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:1.9rem;box-shadow:0 10px 30px rgba(37,211,102,.45);animation:pulse 2.2s infinite;transition:transform .2s}
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:90;width:60px;height:60px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 8px 28px rgba(37,211,102,.4);animation:pulse 2.2s infinite;transition:transform .2s}
 .wa-float:hover{transform:scale(1.08)}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.45)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
 
 /* responsive */
 @media(max-width:960px){
   .hero-grid,.about-grid,.contact-grid,.tt-grid{grid-template-columns:1fr}
-  .hero{padding:140px 0 80px}
-  .steps{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
+  .hero{padding:150px 0 80px}
+  .steps,.stats-row{grid-template-columns:1fr;max-width:420px;margin-inline:auto}
+  .stats-row{grid-template-columns:1fr 1fr}
   nav ul{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:var(--navy);flex-direction:column;align-items:flex-start;padding:100px 36px;gap:26px;transition:right .35s ease;box-shadow:-10px 0 40px rgba(0,0,0,.3)}
   nav ul.open{right:0}
   .burger{display:block;z-index:110}
@@ -222,7 +248,7 @@ footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-s
 <header id="header">
   <div class="container nav-inner">
     <a href="#inicio" class="brand">
-      <img src="logo.png" alt="Vinculamos — Abogados" onerror="this.style.display='none'" style="height:70px;width:auto;object-fit:contain;border-radius:8px">
+      <img src="logo.png" alt="Vinculamos — Abogados" onerror="this.style.display='none'">
       <span class="brand-name">Juan David González<small>Abogado · Cartago, Valle del Cauca</small></span>
     </a>
     <nav>
@@ -247,8 +273,8 @@ footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-s
       <h1>Defiendo tus derechos con <em>compromiso</em> y <em>transparencia</em></h1>
       <p class="lead">Soy Juan David González Sánchez, abogado litigante con 10 años de experiencia. Acompaño a mis clientes en Derecho Civil, de Familia, Pensiones e Inmobiliario con honestidad, cercanía y rigor profesional.</p>
       <div class="hero-ctas">
-        <a class="btn btn-wa" href="https://wa.me/573146646112?text=Hola%20Juan%20David%2C%20vi%20tu%20p%C3%A1gina%20y%20necesito%20asesor%C3%ADa%20legal">💬 Escríbeme por WhatsApp</a>
-        <a class="btn btn-outline" href="#areas">Conoce mis servicios</a>
+        <a class="btn btn-gold" href="https://wa.me/573146646112?text=Hola%20Juan%20David%2C%20vi%20tu%20p%C3%A1gina%20y%20necesito%20asesor%C3%ADa%20legal">💬 Escríbeme por WhatsApp</a>
+        <a class="btn btn-outline-light" href="#areas">Conoce mis servicios</a>
       </div>
       <div class="hero-trust">
         <div><span class="ico">🎓</span> Universidad Cooperativa de Colombia</div>
@@ -269,39 +295,44 @@ footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-s
   </div>
 </section>
 
-<!-- ================= ÁREAS DE PRÁCTICA ================= -->
-<section class="section" id="areas">
+<!-- ================= ÁREAS DE PRÁCTICA (OSCURO) ================= -->
+<section class="section section-dark" id="areas">
   <div class="container">
     <span class="eyebrow">¿En qué te ayudo?</span>
     <h2 class="section-title">Áreas de práctica</h2>
+    <div class="gold-line"></div>
     <p class="section-sub">10 años de experiencia litigando en las ramas del derecho que más afectan a las familias y trabajadores colombianos.</p>
     <div class="grid-areas">
       <div class="area-card">
-        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a6d12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>Derecho de Familia</h3>
-        <p>Divorcios, custodia, cuota alimentaria, paternidad, sucesiones, liquidación de sociedad conyugal y todo lo relacionado con la protección de tu familia.</p>
+        <p>Divorcios, custodia, cuota alimentaria, paternidad, sucesiones, liquidación de sociedad conyugal y protección de tu familia.</p>
+        <span class="view-more">Consultar →</span>
       </div>
       <div class="area-card">
-        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a6d12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="21"/><path d="M5 8h14"/><path d="M6 12h12"/><path d="M7 16h10"/><circle cx="12" cy="3" r="0" fill="#8a6d12"/><path d="M3 8l2-4h2l2 4"/><path d="M15 8l2-4h2l2 4"/><path d="M4 8a3 3 0 0 0 3 3"/><path d="M20 8a3 3 0 0 1-3 3"/></svg></div>
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 12h3v8h14v-8h3L12 3z"/><path d="M9 21v-6h6v6"/></svg></div>
         <h3>Derecho Civil</h3>
-        <p>Contratos, cobro de deudas, responsabilidad civil, arrendamientos, propiedad horizontal, daños y perjuicios, y trámites notariales.</p>
+        <p>Contratos, cobro de deudas, responsabilidad civil, arrendamientos, propiedad horizontal, daños y perjuicios, trámites notariales.</p>
+        <span class="view-more">Consultar →</span>
       </div>
       <div class="area-card">
-        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a6d12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M12 14h.01"/><path d="M6 14h.01"/><path d="M18 14h.01"/><path d="M6 17.5V14"/><path d="M12 17.5V14"/><path d="M18 17.5V14"/></svg></div>
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M12 14h.01"/><path d="M6 14h.01"/><path d="M18 14h.01"/></svg></div>
         <h3>Derecho de Pensiones</h3>
-        <p>Reconocimiento y reliquidación de pensión, sustituciones pensionales, apelaciones ante Colpensiones y fondos privados, y defensa de tus derechos como afiliado.</p>
+        <p>Reconocimiento y reliquidación de pensión, sustituciones pensionales, apelaciones ante Colpensiones y fondos privados.</p>
+        <span class="view-more">Consultar →</span>
       </div>
       <div class="area-card">
-        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8a6d12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 9h.01"/><path d="M15 9h.01"/><path d="M9 13h.01"/><path d="M15 13h.01"/></svg></div>
+        <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 9h.01"/><path d="M15 9h.01"/><path d="M9 13h.01"/><path d="M15 13h.01"/></svg></div>
         <h3>Derecho Inmobiliario</h3>
-        <p>Compraventa de inmuebles, saneamiento de títulos, contratos de arrendamiento, propiedad horizontal, deslinde de linderos, regularización de terrenos y trámites ante notaría y catastro.</p>
+        <p>Compraventa de inmuebles, saneamiento de títulos, arrendamientos, propiedad horizontal, deslinde de linderos, regularización de terrenos.</p>
+        <span class="view-more">Consultar →</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= SOBRE MÍ ================= -->
-<section class="section section-alt" id="sobre-mi">
+<!-- ================= SOBRE MÍ (CLARO) ================= -->
+<section class="section section-light" id="sobre-mi">
   <div class="container about-grid">
     <div class="about-photo">
       <div class="frame">
@@ -312,27 +343,36 @@ footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-s
     <div>
       <span class="eyebrow">Sobre mí</span>
       <h2 class="section-title">Juan David González Sánchez</h2>
-      <p class="section-sub">Abogado titulado de la Universidad Cooperativa de Colombia con una década de experiencia en litigio. Me especializo en Derecho Civil, de Familia, Pensiones e Inmobiliario, áreas donde cada caso es una historia personal que merece atención dedicada y resultados concretos.</p>
+      <div class="gold-line"></div>
+      <p style="color:#555;font-size:.98rem;line-height:1.8;margin-bottom:10px">Abogado titulado de la Universidad Cooperativa de Colombia con una década de experiencia en litigio. Me especializo en Derecho Civil, de Familia, Pensiones e Inmobiliario, áreas donde cada caso es una historia personal que merece atención dedicada y resultados concretos.</p>
       <ul class="creds">
         <li><span class="ck">✓</span> Abogado — Universidad Cooperativa de Colombia</li>
         <li><span class="ck">✓</span> 10 años de experiencia en litigio</li>
         <li><span class="ck">✓</span> Especialista en Derecho Civil, Familia, Pensiones e Inmobiliario</li>
         <li><span class="ck">✓</span> Atención presencial en Cartago y virtual para toda Colombia</li>
       </ul>
-      <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
+      <div class="stats-row">
+        <div class="stat-box"><span class="stat-num">10+</span><span class="stat-label">Años de experiencia</span></div>
+        <div class="stat-box gold-bg"><span class="stat-num">4</span><span class="stat-label">Áreas de práctica</span></div>
+        <div class="stat-box"><span class="stat-num">100%</span><span class="stat-label">Compromiso</span></div>
+      </div>
+      <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
         <a class="btn btn-navy" href="https://wa.me/573146646112?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta">Agendar consulta</a>
-        <a class="btn btn-dark-outline" href="#contacto">Ver contacto</a>
+        <a class="btn btn-outline-dark" href="#contacto">Ver contacto</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= PROCESO ================= -->
-<section class="section" id="proceso">
+<!-- ================= PROCESO (OSCURO) ================= -->
+<section class="section section-dark" id="proceso">
   <div class="container">
-    <span class="eyebrow">¿Cómo trabajo?</span>
-    <h2 class="section-title">Un proceso simple y claro</h2>
-    <p class="section-sub">Desde el primer mensaje hasta el resultado, siempre sabrás en qué etapa está tu caso.</p>
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="eyebrow">¿Cómo trabajo?</span>
+      <h2 class="section-title">Un proceso simple y claro</h2>
+      <div class="gold-line" style="margin-inline:auto"></div>
+      <p class="section-sub" style="margin-inline:auto">Desde el primer mensaje hasta el resultado, siempre sabrás en qué etapa está tu caso.</p>
+    </div>
     <div class="steps">
       <div class="step"><div class="n">1</div><h3>Escríbeme</h3><p>Cuéntame tu situación por WhatsApp o llamada. Te doy una primera orientación sin compromiso para que sepas tus opciones.</p></div>
       <div class="step"><div class="n">2</div><h3>Estudio tu caso</h3><p>Analizamos los documentos, definimos la estrategia legal y te explico cada paso con claridad, sin letra pequeña.</p></div>
@@ -341,21 +381,24 @@ footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-s
   </div>
 </section>
 
-<!-- ================= TESTIMONIOS ================= -->
-<section class="section section-alt" id="testimonios">
+<!-- ================= TESTIMONIOS (CLARO) ================= -->
+<section class="section section-light" id="testimonios">
   <div class="container">
-    <span class="eyebrow">Testimonios</span>
-    <h2 class="section-title">Clientes que confiaron en mí</h2>
-    <p class="note-placeholder">⚠️ Estos son ejemplos de relleno. Juan David puede enviar testimonios reales de sus clientes para reemplazarlos.</p>
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="eyebrow">Testimonios</span>
+      <h2 class="section-title">Clientes que confiaron en mí</h2>
+      <div class="gold-line" style="margin-inline:auto"></div>
+    </div>
+    <p class="note-placeholder">⚠️ Estos son ejemplos de relleno. Juan David puede enviar testimonios reales para reemplazarlos.</p>
     <div class="testi-grid">
       <div class="testi">
         <div class="stars">★★★★★</div>
-        <p>"Juan David me ayudó con el proceso de custodia de mis hijos. Siempre estuvo pendiente, me explicó todo con paciencia y el resultado fue favorable. Totalmente recomendado."</p>
+        <p>"Juan David me ayudó con el proceso de custodia de mis hijos. Siempre estuvo pendiente, me explicó todo con paciencia y el resultado fue favorable."</p>
         <div class="who"><span class="ini">C</span><span><b>Cliente en Cartago</b><small>Derecho de Familia</small></span></div>
       </div>
       <div class="testi">
         <div class="stars">★★★★★</div>
-        <p>"Llevé mi caso de pensión con otro abogado y no avanzaba. Juan David tomó el caso y en pocos meses ya tenía mi resolución. Un profesional serio y cumplido."</p>
+        <p>"Llevé mi caso de pensión con otro abogado y no avanzaba. Juan David tomó el caso y en pocos meses ya tenía mi resolución. Un profesional serio."</p>
         <div class="who"><span class="ini">M</span><span><b>Cliente en el Valle</b><small>Derecho de Pensiones</small></span></div>
       </div>
       <div class="testi">
@@ -373,7 +416,7 @@ footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-s
     <div>
       <span class="eyebrow">Sígueme</span>
       <h2>Aprende tus derechos en <span>TikTok</span></h2>
-      <p>Explico temas legales de forma clara y cercana: casos reales (con nombres cambiados), consejos prácticos para protegerte y respuestas a las dudas que todos tenemos sobre la ley. Cada semana contenido nuevo. ¡Sígueme y activa la campanita! 🔔</p>
+      <p>Explico temas legales de forma clara y cercana: casos reales (con nombres cambiados), consejos prácticos y respuestas a tus dudas sobre la ley. Cada semana contenido nuevo. ¡Sígueme y activa la campanita! 🔔</p>
       <a class="tt-follow" href="https://www.tiktok.com/@vinculamos.abogad" target="_blank" rel="noopener">
         <svg class="tt-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
         Seguir a Juan David en TikTok
@@ -386,11 +429,14 @@ footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-s
   </div>
 </section>
 
-<!-- ================= FAQ ================= -->
-<section class="section" id="faq">
+<!-- ================= FAQ (OSCURO) ================= -->
+<section class="section section-dark" id="faq">
   <div class="container">
-    <span class="eyebrow">Preguntas frecuentes</span>
-    <h2 class="section-title">Resuelvo tus dudas</h2>
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2 class="section-title">Resuelvo tus dudas</h2>
+      <div class="gold-line" style="margin-inline:auto"></div>
+    </div>
     <div class="faq">
       <div class="faq-item">
         <button class="faq-q">¿Cómo es la primera consulta?<span class="pm">+</span></button>
@@ -398,7 +444,7 @@ footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-s
       </div>
       <div class="faq-item">
         <button class="faq-q">¿Qué documentos debo llevar?<span class="pm">+</span></button>
-        <div class="faq-a"><div>Todo lo relacionado con tu caso: contratos, notificaciones judiciales, certificados, resoluciones, mensajes o cualquier documento que consideres relevante. Si no estás seguro, escríbeme antes y te indico qué necesitas.</div></div>
+        <div class="faq-a"><div>Todo lo relacionado con tu caso: contratos, notificaciones judiciales, certificados, resoluciones, mensajes o cualquier documento relevante. Si no estás seguro, escríbeme antes y te indico.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">¿Atiendes solo en Cartago o también virtual?<span class="pm">+</span></button>
@@ -410,18 +456,21 @@ footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-s
       </div>
       <div class="faq-item">
         <button class="faq-q">¿Cuánto tarda un proceso de pensión?<span class="pm">+</span></button>
-        <div class="faq-a"><div>Depende de cada caso: si es ante Colpensiones, un fondo privado o judicial. En la primera consulta te doy un estimado realista según tu situación particular.</div></div>
+        <div class="faq-a"><div>Depende de cada caso: si es ante Colpensiones, un fondo privado o judicial. En la primera consulta te doy un estimado realista según tu situación.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= CONTACTO ================= -->
-<section class="section section-alt" id="contacto">
+<!-- ================= CONTACTO (CLARO) ================= -->
+<section class="section section-light" id="contacto">
   <div class="container">
-    <span class="eyebrow">Contacto</span>
-    <h2 class="section-title">Hablemos de tu caso</h2>
-    <p class="section-sub">Escríbeme por el medio que prefieras. Respondo con prontitud y tu información queda totalmente confidencial.</p>
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="eyebrow">Contacto</span>
+      <h2 class="section-title">Hablemos de tu caso</h2>
+      <div class="gold-line" style="margin-inline:auto"></div>
+      <p class="section-sub" style="margin-inline:auto;color:#666">Escríbeme por el medio que prefieras. Respondo con prontitud y tu información queda totalmente confidencial.</p>
+    </div>
     <div class="contact-grid">
       <div>
         <div class="c-card"><div class="ico">💬</div><div><b>WhatsApp / Teléfono</b><a href="https://wa.me/573146646112">+57 314 664 6112</a></div></div>
@@ -430,12 +479,6 @@ footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-s
         <div class="c-card"><div class="ico">🕒</div><div><b>Horario de atención</b><span>Lunes a viernes · 8:00 am – 6:00 pm</span></div></div>
         <div class="c-card"><div class="ico">👍</div><div><b>Facebook</b><a href="https://www.facebook.com/share/1EQWdsh1aD/" target="_blank" rel="noopener">Juan David González Sánchez</a></div></div>
         <div class="c-card"><div class="ico">🎵</div><div><b>TikTok</b><a href="https://www.tiktok.com/@vinculamos.abogad" target="_blank" rel="noopener">@vinculamos.abogad</a></div></div>
-        <div class="c-card"><div class="ico">🌐</div><div><b>Redes sociales</b>
-          <div class="socials-row">
-            <a href="https://www.tiktok.com/@vinculamos.abogad" target="_blank" rel="noopener" title="TikTok" style="background:#000">🎵</a>
-            <a href="https://www.facebook.com/share/1EQWdsh1aD/" target="_blank" rel="noopener" title="Facebook" style="background:#1877F2">👍</a>
-          </div>
-        </div></div>
       </div>
       <div class="form-box">
         <h3>Escríbeme un mensaje</h3>
@@ -456,7 +499,7 @@ footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-s
             </div>
             <div class="full"><label for="fm">Mensaje</label><textarea id="fm" placeholder="Cuéntame brevemente tu caso..." required></textarea></div>
           </div>
-          <button type="submit" class="btn btn-navy" style="width:100%;margin-top:20px">Enviar por WhatsApp ➤</button>
+          <button type="submit" class="btn btn-gold" style="width:100%;margin-top:20px">Enviar por WhatsApp ➤</button>
           <div class="form-msg" id="formMsg"></div>
         </form>
       </div>
@@ -500,7 +543,6 @@ footer{background:#081627;color:rgba(255,255,255,.65);padding:48px 0 28px;font-s
 <a class="wa-float" href="https://wa.me/573146646112?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20contigo" target="_blank" rel="noopener" title="Escríbeme por WhatsApp" aria-label="WhatsApp">💬</a>
 
 <script>
-// ---- Menú móvil ----
 const burger = document.getElementById('burger');
 const menu = document.getElementById('menu');
 burger.addEventListener('click', () => {
@@ -512,13 +554,11 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   menu.classList.remove('open');
 }));
 
-// ---- Header con sombra al hacer scroll ----
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 30);
 });
 
-// ---- FAQ acordeón ----
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.parentElement;
@@ -535,7 +575,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// ---- Formulario: abre WhatsApp con el mensaje ----
 const form = document.getElementById('contactForm');
 const formMsg = document.getElementById('formMsg');
 const PHONE = '573146646112';
