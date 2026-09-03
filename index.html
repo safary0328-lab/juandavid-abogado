@@ -5,6 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Juan David González Sánchez | Abogado en Cartago, Valle del Cauca</title>
 <meta name="description" content="Abogado en Cartago, Valle del Cauca. 10 años de experiencia en Derecho Civil, Familia, Pensiones e Inmobiliario. Asesoría legal con compromiso y transparencia.">
+<link rel="canonical" href="https://safary0328-lab.github.io/juandavid-abogado/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="Juan David González | Abogado en Cartago, Valle del Cauca">
+<meta property="og:description" content="Abogado litigante con 10 años de experiencia. Derecho Civil, Familia, Pensiones e Inmobiliario.">
+<meta property="og:image" content="https://safary0328-lab.github.io/juandavid-abogado/foto.webp">
+<meta property="og:url" content="https://safary0328-lab.github.io/juandavid-abogado/">
+<meta name="theme-color" content="#12172b">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Juan David González Sánchez — Abogado",
+  "description": "Abogado litigante en Cartago, Valle del Cauca. Derecho Civil, Familia, Pensiones e Inmobiliario.",
+  "url": "https://safary0328-lab.github.io/juandavid-abogado/",
+  "image": "https://safary0328-lab.github.io/juandavid-abogado/foto.webp",
+  "telephone": "+573146646112",
+  "email": "Juandelavid@hotmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle 13 No 1-60",
+    "addressLocality": "Cartago",
+    "addressRegion": "Valle del Cauca",
+    "addressCountry": "CO"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "https://www.tiktok.com/@vinculamos.abogad",
+    "https://www.facebook.com/share/1EQWdsh1aD/"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -219,12 +256,17 @@ footer{background:#0a0e1a;color:rgba(255,255,255,.5);padding:48px 0 28px;font-si
 .foot-links{display:flex;gap:26px;flex-wrap:wrap;list-style:none;align-items:flex-start}
 .foot-links a{color:rgba(255,255,255,.5);transition:color .2s}
 .foot-links a:hover{color:var(--gold)}
-.copyright{text-align:center;font-size:.78rem;color:rgba(255,255,255,.3)}
+.copyright{text-align:center;font-size:.78rem;color:rgba(255,255,255,.55)}
 
 /* WhatsApp flotante */
 .wa-float{position:fixed;bottom:24px;right:24px;z-index:90;width:60px;height:60px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 8px 28px rgba(37,211,102,.4);animation:pulse 2.2s infinite;transition:transform .2s}
 .wa-float:hover{transform:scale(1.08)}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.45)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+/* Focus styles (accesibilidad) */
+a:focus-visible, button:focus-visible, .btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+input:focus, textarea:focus, select:focus{outline:2px solid var(--gold);outline-offset:1px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wa-float{animation:none}}
 
 /* responsive */
 @media(max-width:960px){
@@ -232,13 +274,21 @@ footer{background:#0a0e1a;color:rgba(255,255,255,.5);padding:48px 0 28px;font-si
   .hero{padding:150px 0 80px}
   .steps,.stats-row{grid-template-columns:1fr;max-width:420px;margin-inline:auto}
   .stats-row{grid-template-columns:1fr 1fr}
-  nav ul{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:var(--navy);flex-direction:column;align-items:flex-start;padding:100px 36px;gap:26px;transition:right .35s ease;box-shadow:-10px 0 40px rgba(0,0,0,.3)}
-  nav ul.open{right:0}
+  nav ul{position:fixed;top:0;right:-320px;width:300px;height:100dvh;background:var(--navy);flex-direction:column;align-items:flex-start;padding:100px 36px;gap:26px;transition:right .35s ease,visibility .35s;box-shadow:-10px 0 40px rgba(0,0,0,.3);visibility:hidden;pointer-events:none;overflow-y:auto}
+  nav ul.open{right:0;visibility:visible;pointer-events:auto}
   .burger{display:block;z-index:110}
   .burger.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
   .burger.active span:nth-child(2){opacity:0}
   .burger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
   .form-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .nav-inner{height:70px}
+  .brand img{height:44px}
+  .hero{padding:118px 0 64px}
+  .section{padding:64px 0}
+  .tiktok-band,.final-cta{padding:64px 0}
+  .hero-card{padding:24px 18px}
 }
 </style>
 </head>
@@ -248,7 +298,7 @@ footer{background:#0a0e1a;color:rgba(255,255,255,.5);padding:48px 0 28px;font-si
 <header id="header">
   <div class="container nav-inner">
     <a href="#inicio" class="brand">
-      <img src="logo.png" alt="Vinculamos — Abogados" onerror="this.style.display='none'">
+      <img src="logo.webp" alt="Vinculamos — Abogados" onerror="this.src='logo.png'" width="70" height="70">
       <span class="brand-name">Juan David González<small>Abogado · Cartago, Valle del Cauca</small></span>
     </a>
     <nav>
@@ -261,7 +311,7 @@ footer{background:#0a0e1a;color:rgba(255,255,255,.5);padding:48px 0 28px;font-si
         <li><a class="nav-cta" href="https://wa.me/573146646112?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20contigo">Consultar</a></li>
       </ul>
     </nav>
-    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -283,7 +333,7 @@ footer{background:#0a0e1a;color:rgba(255,255,255,.5);padding:48px 0 28px;font-si
       </div>
     </div>
     <div class="hero-card">
-      <img class="avatar" src="foto.jpg" alt="Juan David González Sánchez — Abogado" onerror="this.outerHTML='<div class=avatar-ph>👨‍⚖️</div>'">
+      <img class="avatar" src="foto.webp" alt="Juan David González Sánchez — Abogado" width="170" height="170" onerror="this.src='foto.jpg'">
       <h3>Juan David González</h3>
       <div class="role">Abogado Litigante</div>
       <div class="card-line">📞 +57 314 664 6112</div>
@@ -336,7 +386,7 @@ footer{background:#0a0e1a;color:rgba(255,255,255,.5);padding:48px 0 28px;font-si
   <div class="container about-grid">
     <div class="about-photo">
       <div class="frame">
-        <img src="foto.jpg" alt="Juan David González Sánchez" onerror="this.outerHTML='<div style=&quot;padding:80px;text-align:center;font-size:4rem;background:var(--navy);color:#fff&quot;>👨‍⚖️</div>'">
+        <img src="foto.webp" alt="Juan David González Sánchez" width="560" height="420" loading="lazy" decoding="async" onerror="this.src='foto.jpg'">
       </div>
       <div class="sello"><span class="num">10</span> años de<br>experiencia</div>
     </div>
@@ -545,14 +595,22 @@ footer{background:#0a0e1a;color:rgba(255,255,255,.5);padding:48px 0 28px;font-si
 <script>
 const burger = document.getElementById('burger');
 const menu = document.getElementById('menu');
-burger.addEventListener('click', () => {
-  burger.classList.toggle('active');
-  menu.classList.toggle('open');
-});
+const toggleMenu = () => {
+  const open = menu.classList.toggle('open');
+  burger.classList.toggle('active', open);
+  burger.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+};
+burger.addEventListener('click', toggleMenu);
 menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  burger.classList.remove('active');
   menu.classList.remove('open');
+  burger.classList.remove('active');
+  burger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
 }));
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && menu.classList.contains('open')) toggleMenu();
+});
 
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
